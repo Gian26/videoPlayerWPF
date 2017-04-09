@@ -5,8 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:videoPlayerWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="373.882" Width="525">
     <Grid>
-        
+        <Button x:Name="Play" Content="PLAY" HorizontalAlignment="Left" Margin="21,271,0,0" VerticalAlignment="Top" Width="75" Click="Play_Click"/>
+        <Button x:Name="Pause" Content="PAUSE" HorizontalAlignment="Left" Margin="117,271,0,0" VerticalAlignment="Top" Width="75" Click="Pause_Click"/>
+        <Button x:Name="Stop" Content="STOP" HorizontalAlignment="Left" Margin="213,271,0,0" VerticalAlignment="Top" Width="75" Click="Stop_Click"/>
+        <Button x:Name="Media_B" Content="ADD MEDIA" HorizontalAlignment="Left" Margin="305,272,0,0" VerticalAlignment="Top" Width="75" Click="Media_Click"/>
+        <MediaElement x:Name="Player" LoadedBehavior="Manual" HorizontalAlignment="Left" Height="252" Margin="10,10,0,0" VerticalAlignment="Top" Width="497"/>
+        <Label x:Name="MediaName" Content="Opened: " HorizontalAlignment="Left" Margin="24,299,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

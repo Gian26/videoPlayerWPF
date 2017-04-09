@@ -1,0 +1,14 @@
+\\Mac\Home\Documents\Visual Studio 2017\Projects\videoPlayerWPF\videoPlayerWPF\bin\Debug\videoPlayerWPF.exe.config
+\\Mac\Home\Documents\Visual Studio 2017\Projects\videoPlayerWPF\videoPlayerWPF\bin\Debug\videoPlayerWPF.exe
+\\Mac\Home\Documents\Visual Studio 2017\Projects\videoPlayerWPF\videoPlayerWPF\bin\Debug\videoPlayerWPF.pdb
+\\Mac\Home\Documents\Visual Studio 2017\Projects\videoPlayerWPF\videoPlayerWPF\obj\Debug\videoPlayerWPF.csprojResolveAssemblyReference.cache
+\\Mac\Home\Documents\Visual Studio 2017\Projects\videoPlayerWPF\videoPlayerWPF\obj\Debug\MainWindow.g.cs
+\\Mac\Home\Documents\Visual Studio 2017\Projects\videoPlayerWPF\videoPlayerWPF\obj\Debug\App.g.cs
+\\Mac\Home\Documents\Visual Studio 2017\Projects\videoPlayerWPF\videoPlayerWPF\obj\Debug\videoPlayerWPF_MarkupCompile.cache
+\\Mac\Home\Documents\Visual Studio 2017\Projects\videoPlayerWPF\videoPlayerWPF\obj\Debug\videoPlayerWPF_MarkupCompile.lref
+\\Mac\Home\Documents\Visual Studio 2017\Projects\videoPlayerWPF\videoPlayerWPF\obj\Debug\MainWindow.baml
+\\Mac\Home\Documents\Visual Studio 2017\Projects\videoPlayerWPF\videoPlayerWPF\obj\Debug\videoPlayerWPF.g.resources
+\\Mac\Home\Documents\Visual Studio 2017\Projects\videoPlayerWPF\videoPlayerWPF\obj\Debug\videoPlayerWPF.Properties.Resources.resources
+\\Mac\Home\Documents\Visual Studio 2017\Projects\videoPlayerWPF\videoPlayerWPF\obj\Debug\videoPlayerWPF.csproj.GenerateResource.Cache
+\\Mac\Home\Documents\Visual Studio 2017\Projects\videoPlayerWPF\videoPlayerWPF\obj\Debug\videoPlayerWPF.exe
+\\Mac\Home\Documents\Visual Studio 2017\Projects\videoPlayerWPF\videoPlayerWPF\obj\Debug\videoPlayerWPF.pdb

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,38 @@ namespace videoPlayerWPF
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Media_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.AddExtension = true;
+            ofd.DefaultExt = "*.*";
+            ofd.Filter = "Media(*.*)|*.*";
+            ofd.ShowDialog();
+            Player.MediaOpened += new RoutedEventHandler(Player_MediaOpened);
+            Player.Source = new Uri(ofd.FileName);
+        }
+
+        private void Stop_Click(object sender, RoutedEventArgs e)
+        {
+            Player.Stop();
+        }
+
+        private void Pause_Click(object sender, RoutedEventArgs e)
+        {
+            Player.Pause();
+        }
+
+        private void Player_MediaOpened(object sender, RoutedEventArgs e)
+        {
+            MediaName.Content = Player.Source.ToString();
+        }
+
+        private void Play_Click(object sender, RoutedEventArgs e)
+        {
+            Player.Play();
+
         }
     }
 }
