@@ -5,13 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:videoPlayerWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="373.882" Width="525">
-    <Grid>
+        Title="MainWindow" Height="620.014" Width="662.529" Loaded="Window_Loaded">
+    <Grid RenderTransformOrigin="0.416,0.609" Margin="0,0,0,-7">
         <Button x:Name="Play" Content="PLAY" HorizontalAlignment="Left" Margin="21,271,0,0" VerticalAlignment="Top" Width="75" Click="Play_Click"/>
         <Button x:Name="Pause" Content="PAUSE" HorizontalAlignment="Left" Margin="117,271,0,0" VerticalAlignment="Top" Width="75" Click="Pause_Click"/>
         <Button x:Name="Stop" Content="STOP" HorizontalAlignment="Left" Margin="213,271,0,0" VerticalAlignment="Top" Width="75" Click="Stop_Click"/>
         <Button x:Name="Media_B" Content="ADD MEDIA" HorizontalAlignment="Left" Margin="305,272,0,0" VerticalAlignment="Top" Width="75" Click="Media_Click"/>
-        <MediaElement x:Name="Player" LoadedBehavior="Manual" HorizontalAlignment="Left" Height="252" Margin="10,10,0,0" VerticalAlignment="Top" Width="497"/>
-        <Label x:Name="MediaName" Content="Opened: " HorizontalAlignment="Left" Margin="24,299,0,0" VerticalAlignment="Top"/>
+        <MediaElement StretchDirection="DownOnly" x:Name="Player" LoadedBehavior="Manual"  Stretch="Fill"  HorizontalAlignment="Left" Height="252" Margin="10,10,0,0" VerticalAlignment="Top" Width="497"
+                       MediaOpened="Element_MediaOpened" MediaEnded="Element_MediaEnded"/>
+        <Label x:Name="MediaName" Content="Opened: " HorizontalAlignment="Left" Margin="30,294,0,0" VerticalAlignment="Top"/>
+        <!-- Seek to slider. Ths slider allows you to jump to different parts of the media playback. -->
+        <TextBlock Foreground="Blue" Margin="41,373,390,194"  VerticalAlignment="Center" Height="29">Seek To</TextBlock>
+        <Slider Name="timelineSlider" Margin="125,374,418,194" ValueChanged="SeekToMediaPosition"/>
+
+        <!-- Volume slider. This slider allows you to change the speed of the media playback. -->
+        <TextBlock Foreground="Blue" Margin="41,344,227,223"  VerticalAlignment="Center" Height="29">Speed</TextBlock>
+        <Slider Name="speedRatioSlider" VerticalAlignment="Center" ValueChanged="ChangeMediaSpeedRatio" 
+       Value="1" Margin="117,344,418,222" RenderTransformOrigin="-5.814,9.869" Height="30" />
+
+
+        <!-- Volume slider. This slider allows a Volume range between 0 and 1. -->
+        <TextBlock Foreground="Blue" VerticalAlignment="Center" Margin="41,316,318,257" Height="23"  >Volume</TextBlock>
+        <Slider Name="volumeSlider" VerticalAlignment="Center" ValueChanged="ChangeMediaVolume" 
+       Minimum="0" Maximum="1" Value="0.5" RenderTransformOrigin="0.493,0.516" Margin="125,320,418,257" Height="19"/>
     </Grid>
 </Window>
