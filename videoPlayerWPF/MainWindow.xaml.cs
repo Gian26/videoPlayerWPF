@@ -23,19 +23,20 @@ namespace videoPlayerWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        private bool mediaPlayerIsPlaying = false;
+        //private bool mediaPlayerIsPlaying = false;
         private bool userIsDraggingSlider = false;
 
         public MainWindow()
         {
             InitializeComponent();
-            DispatcherTimer timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(1);
+            DispatcherTimer timer = new DispatcherTimer()
+            {
+                Interval = TimeSpan.FromSeconds(1)
+            };
             timer.Tick += Timer_Tick;
             timer.Start();
             // Initialize the MediaElement property values.
             InitializePropertyValues();
-
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
@@ -118,6 +119,7 @@ namespace videoPlayerWPF
         // to the total number of miliseconds in the length of the media clip.
         private void Element_MediaOpened(object sender, EventArgs e)
         {
+
             //timelineSlider.Maximum = Player.NaturalDuration.TimeSpan.TotalMilliseconds;
         }
 

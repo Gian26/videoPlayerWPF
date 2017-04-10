@@ -19,6 +19,7 @@
             <Button x:Name="Stop" Content="STOP"  Click="Stop_Click"/>
             <Button x:Name="Media_B" Content="ADD MEDIA" Click="Media_Click"/>
         </ToolBar>
+        
         <MediaElement StretchDirection="DownOnly" x:Name="Player" LoadedBehavior="Manual"  Stretch="None"  Grid.Row="1"  MediaOpened="Element_MediaOpened" MediaEnded="Element_MediaEnded"/>
 
         <StatusBar Grid.Row="2">
@@ -27,7 +28,7 @@
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="3*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                     </Grid>
@@ -71,9 +72,9 @@
             <StatusBarItem>
                 <TextBlock >Volume</TextBlock>
             </StatusBarItem> -->
-            <StatusBarItem Grid.Column="2" >
+            <StatusBarItem Grid.Column="2" HorizontalContentAlignment="Stretch" >
                 <Slider Name="volumeSlider" ValueChanged="ChangeMediaVolume" 
-                   Minimum="0" Maximum="1" Value="0.5" />
+                   Minimum="0" Maximum="1" Value="0.1" />
             </StatusBarItem>
         </StatusBar>
     </Grid>
