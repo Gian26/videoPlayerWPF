@@ -40,10 +40,10 @@ namespace videoPlayerWPF
             timer.Tick += Timer_Tick;
             timer.Start();
 
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
             // Initialize the MediaElement property values.
             InitializePropertyValues();
-
-       
 
     }
     private void Timer_Tick(object sender, EventArgs e)
@@ -156,8 +156,7 @@ namespace videoPlayerWPF
                     this.Content = Player;
                     this.WindowStyle = WindowStyle.None;
                     this.WindowState = WindowState.Maximized;
-
-                    Player.Position = TimeSpan.FromSeconds(currentposition = 0);
+                    Player.Position = TimeSpan.FromSeconds(sliProgress.Value);
                     fullScreen = true;
                 }
                 else if(fullScreen && e.ClickCount == 2) {
@@ -167,6 +166,7 @@ namespace videoPlayerWPF
                     this.Background = new SolidColorBrush(Colors.White);
                     this.WindowStyle = WindowStyle.SingleBorderWindow;
                     this.WindowState = WindowState.Normal;
+                    Player.Position = TimeSpan.FromSeconds(sliProgress.Value);
                     fullScreen = false;
                 } 
         }
