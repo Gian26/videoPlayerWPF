@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -37,10 +38,14 @@ namespace videoPlayerWPF
             };
             timer.Tick += Timer_Tick;
             timer.Start();
+
             // Initialize the MediaElement property values.
             InitializePropertyValues();
-        }
-        private void Timer_Tick(object sender, EventArgs e)
+
+       
+
+    }
+    private void Timer_Tick(object sender, EventArgs e)
         {
             if ((Player.Source != null) && (Player.NaturalDuration.HasTimeSpan) && (!userIsDraggingSlider))
             {
@@ -140,44 +145,46 @@ namespace videoPlayerWPF
             Player.Volume += (e.Delta > 0) ? 0.1 : -0.1;
         }
 
-        private void Full_Click(object sender, RoutedEventArgs e)
+        private void Full_Click(object sender, MouseButtonEventArgs e)
         {
-            if (!fullScreen)
-            {
 
-                var child = Player;
-                var parent = VisualTreeHelper.GetParent(child);
-                var parentAsPanel = parent as Panel;
-                if (parentAsPanel != null)
+                if (!fullScreen)
                 {
-                    parentAsPanel.Children.Remove(child);
-                }
-                var parentAsContentControl = parent as ContentControl;
-                if (parentAsContentControl != null)
-                {
-                    parentAsContentControl.Content = null;
-                }
-                var parentAsDecorator = parent as Decorator;
-                if (parentAsDecorator != null)
-                {
-                    parentAsDecorator.Child = null;
-                }
+                    var child = Player;
+                    var parent = VisualTreeHelper.GetParent(child);
+                    var parentAsPanel = parent as Panel;
+                    if (parentAsPanel != null)
+                    {
+                        parentAsPanel.Children.Remove(child);
+                    }
+                    var parentAsContentControl = parent as ContentControl;
+                    if (parentAsContentControl != null)
+                    {
+                        parentAsContentControl.Content = null;
+                    }
+                    var parentAsDecorator = parent as Decorator;
+                    if (parentAsDecorator != null)
+                    {
+                        parentAsDecorator.Child = null;
+                    }
 
 
-                this.Background = new SolidColorBrush(Colors.Black);
-                this.Content = Player;
-                this.WindowStyle = WindowStyle.None;
-                this.WindowState = WindowState.Maximized;
+                    this.Background = new SolidColorBrush(Colors.Black);
+                    this.Content = Player;
+                    this.WindowStyle = WindowStyle.None;
+                    this.WindowState = WindowState.Maximized;
 
-                Player.Position = TimeSpan.FromSeconds(currentposition = 0);
-            }
-            else {
-                this.Background = new SolidColorBrush(Colors.White);
-                this.WindowStyle = WindowStyle.SingleBorderWindow;
-                this.WindowState = WindowState.Normal;
-                Player.Position = TimeSpan.FromSeconds(currentposition = 0);
-            }
-            fullScreen = !fullScreen;
+                    Player.Position = TimeSpan.FromSeconds(currentposition = 0);
+                }
+                else {
+
+                    this.Background = new SolidColorBrush(Colors.White);
+                    this.WindowStyle = WindowStyle.SingleBorderWindow;
+                    this.WindowState = WindowState.Normal;
+                    Player.Position = TimeSpan.FromSeconds(currentposition = 0);
+                }
+                fullScreen = !fullScreen;
+            
 
         }
     }
