@@ -25,6 +25,8 @@ namespace videoPlayerWPF
     {
         //private bool mediaPlayerIsPlaying = false;
         private bool userIsDraggingSlider = false;
+        private bool fullScreen;
+        private double currentposition;
 
         public MainWindow()
         {
@@ -83,16 +85,6 @@ namespace videoPlayerWPF
 
         }
 
-        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            Player.StretchDirection = StretchDirection.UpOnly;
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            this.SizeChanged += Window_SizeChanged;
-        }
-
         private void SliProgress_DragStarted(object sender, DragStartedEventArgs e)
         {
             userIsDraggingSlider = true;
@@ -148,5 +140,45 @@ namespace videoPlayerWPF
             Player.Volume += (e.Delta > 0) ? 0.1 : -0.1;
         }
 
+        private void Full_Click(object sender, RoutedEventArgs e)
+        {
+            if (!fullScreen)
+            {
+
+                var child = Player;
+                var parent = VisualTreeHelper.GetParent(child);
+                var parentAsPanel = parent as Panel;
+                if (parentAsPanel != null)
+                {
+                    parentAsPanel.Children.Remove(child);
+                }
+                var parentAsContentControl = parent as ContentControl;
+                if (parentAsContentControl != null)
+                {
+                    parentAsContentControl.Content = null;
+                }
+                var parentAsDecorator = parent as Decorator;
+                if (parentAsDecorator != null)
+                {
+                    parentAsDecorator.Child = null;
+                }
+
+
+                this.Background = new SolidColorBrush(Colors.Black);
+                this.Content = Player;
+                this.WindowStyle = WindowStyle.None;
+                this.WindowState = WindowState.Maximized;
+
+                Player.Position = TimeSpan.FromSeconds(currentposition = 0);
+            }
+            else {
+                this.Background = new SolidColorBrush(Colors.White);
+                this.WindowStyle = WindowStyle.SingleBorderWindow;
+                this.WindowState = WindowState.Normal;
+                Player.Position = TimeSpan.FromSeconds(currentposition = 0);
+            }
+            fullScreen = !fullScreen;
+
+        }
     }
 }

@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:videoPlayerWPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="300" Width="300"
-        MinWidth="300" SizeToContent="WidthAndHeight" Loaded="Window_Loaded">
+        MinWidth="300" SizeToContent="WidthAndHeight">
     <Grid MouseWheel="Grid_MouseWheel">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <ToolBar>
@@ -18,9 +18,10 @@
             <Button x:Name="Pause" Content="PAUSE"  Click="Pause_Click"/>
             <Button x:Name="Stop" Content="STOP"  Click="Stop_Click"/>
             <Button x:Name="Media_B" Content="ADD MEDIA" Click="Media_Click"/>
+            <Button x:Name="FScreen" Content="Full Screen" Click="Full_Click"/>
         </ToolBar>
         
-        <MediaElement StretchDirection="DownOnly" x:Name="Player" LoadedBehavior="Manual"  Stretch="None"  Grid.Row="1"  MediaOpened="Element_MediaOpened" MediaEnded="Element_MediaEnded"/>
+        <MediaElement x:Name="Player" LoadedBehavior="Manual"    Grid.Row="1"  MediaOpened="Element_MediaOpened" MediaEnded="Element_MediaEnded"/>
 
         <StatusBar Grid.Row="2">
             <StatusBar.ItemsPanel>
