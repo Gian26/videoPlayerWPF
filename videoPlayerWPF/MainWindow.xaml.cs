@@ -29,6 +29,7 @@ namespace videoPlayerWPF
         private bool fullScreen;
         private double currentposition;
 
+
         public MainWindow()
         {
             InitializeComponent();
@@ -148,44 +149,26 @@ namespace videoPlayerWPF
         private void Full_Click(object sender, MouseButtonEventArgs e)
         {
 
-                if (!fullScreen)
+                if (fullScreen == false && e.ClickCount==2)
                 {
-                    var child = Player;
-                    var parent = VisualTreeHelper.GetParent(child);
-                    var parentAsPanel = parent as Panel;
-                    if (parentAsPanel != null)
-                    {
-                        parentAsPanel.Children.Remove(child);
-                    }
-                    var parentAsContentControl = parent as ContentControl;
-                    if (parentAsContentControl != null)
-                    {
-                        parentAsContentControl.Content = null;
-                    }
-                    var parentAsDecorator = parent as Decorator;
-                    if (parentAsDecorator != null)
-                    {
-                        parentAsDecorator.Child = null;
-                    }
-
-
+                    pGrid.Children.Remove(Player);
                     this.Background = new SolidColorBrush(Colors.Black);
                     this.Content = Player;
                     this.WindowStyle = WindowStyle.None;
                     this.WindowState = WindowState.Maximized;
 
                     Player.Position = TimeSpan.FromSeconds(currentposition = 0);
+                    fullScreen = true;
                 }
-                else {
+                else if(fullScreen && e.ClickCount == 2) {
 
+                    this.Content = pGrid;
+                    pGrid.Children.Add(Player);
                     this.Background = new SolidColorBrush(Colors.White);
                     this.WindowStyle = WindowStyle.SingleBorderWindow;
                     this.WindowState = WindowState.Normal;
-                    Player.Position = TimeSpan.FromSeconds(currentposition = 0);
-                }
-                fullScreen = !fullScreen;
-            
-
+                    fullScreen = false;
+                } 
         }
     }
 }
