@@ -20,7 +20,7 @@
             <Button x:Name="Media_B" Content="ADD MEDIA" Click="Media_Click"/>
         </ToolBar>
 
-        <MediaElement x:Name="Player" MouseLeftButtonDown="Full_Click" LoadedBehavior="Manual" Stretch="UniformToFill"   Grid.Row="1"  MediaOpened="Element_MediaOpened" MediaEnded="Element_MediaEnded"/>
+        <MediaElement x:Name="Player" MouseLeftButtonDown="Full_Click" LoadedBehavior="Manual" Stretch="Fill"   Grid.Row="1"  MediaOpened="Element_MediaOpened" MediaEnded="Element_MediaEnded"/>
 
         <StatusBar Grid.Row="2">
             <StatusBar.ItemsPanel>
