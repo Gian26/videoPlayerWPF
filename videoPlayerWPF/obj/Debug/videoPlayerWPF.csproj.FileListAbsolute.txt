@@ -11,3 +11,4 @@
 \\Mac\Home\Documents\Visual Studio 2017\Projects\videoPlayerWPF\videoPlayerWPF\obj\Debug\videoPlayerWPF.csproj.GenerateResource.Cache
 \\Mac\Home\Documents\Visual Studio 2017\Projects\videoPlayerWPF\videoPlayerWPF\obj\Debug\videoPlayerWPF.exe
 \\Mac\Home\Documents\Visual Studio 2017\Projects\videoPlayerWPF\videoPlayerWPF\obj\Debug\videoPlayerWPF.pdb
+\\Mac\Home\Documents\Visual Studio 2017\Projects\videoPlayerWPF\videoPlayerWPF\obj\Debug\videoPlayerWPF.csprojResolveAssemblyReference.cache
